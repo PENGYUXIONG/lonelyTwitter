@@ -34,8 +34,10 @@ public class LonelyTwitterActivity extends Activity {
 
 	private ArrayList<Tweet> tweetList;
 	private ArrayAdapter<Tweet> adapter;
-	
-	/** Called when the activity is first created. */
+
+	/**
+	 * Called when the activity is first created.
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -87,7 +89,8 @@ public class LonelyTwitterActivity extends Activity {
 
 			// Taken https://stackoverflow.com/questions/12384064/gson-convert-from-json-to-a-typed-arraylistt
 			// 2018-01-23
-			Type listType = new TypeToken<ArrayList<NormalTweet>>(){}.getType();
+			Type listType = new TypeToken<ArrayList<NormalTweet>>() {
+			}.getType();
 			tweetList = gson.fromJson(in, listType);
 
 		} catch (FileNotFoundException e) {
@@ -97,7 +100,7 @@ public class LonelyTwitterActivity extends Activity {
 		}
 
 	}
-	
+
 	private void saveInFile() {
 		try {
 
@@ -122,5 +125,14 @@ public class LonelyTwitterActivity extends Activity {
 	protected void onDestroy() {
 		super.onDestroy();
 		Log.i("Lifecycle", "onDestroy is called");
+	}
+
+	public void Clear_Screen(View view) {
+		loadFromFile();
+		tweetList.clear();
+		adapter.clear();
+		saveInFile();
+		loadFromFile();
+		onStart();
 	}
 }
