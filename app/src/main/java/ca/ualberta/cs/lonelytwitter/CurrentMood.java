@@ -1,6 +1,10 @@
 package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
-
+/**
+* call the parent class and update variables
+* indicating the new numbers
+*update the image
+*/
 
 public class CurrentMood {
     private Date times;
