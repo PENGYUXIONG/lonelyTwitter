@@ -1,0 +1,30 @@
+1.
+Model --> controller --> View
+The model will notify thr view first. 
+
+2.
+After the model has been changed 
+* Take the object in the action of a Controller.
+* Pass Model object as a parameter to View.
+
+3.
+observer is an interface that aggregate to observable. 
+While the observable pass the update info to the observer, observer will pass the new model as a parameter to the view.
+
+4.
+If instaniate for second time, the class should be updated.
+
+5.
+The receiver pass the data to ConcreateCommand and then transform the data to invoker(view) in the form of parameter.
+
+6.
+The LightBulb class has two methods: turnOn() and turnOff() is the invoker.
+
+7.
+The RemoteControl class which has one method:
+buttonPress(command)
+play the role of receiver.
+
+8.
+the last line turns on the lightbulb:
+r.buttonPress(t)
